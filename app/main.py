@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.security import HTTPBearer
-from app.routers import auth, categories, transactions, budgets
+from app.routers import auth, categories, transactions, budgets, reports
 
 security = HTTPBearer()
 
@@ -14,6 +14,7 @@ app.include_router(auth.router)
 app.include_router(categories.router)
 app.include_router(transactions.router)
 app.include_router(budgets.router)
+app.include_router(reports.router)
 
 
 @app.get("/health")
