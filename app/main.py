@@ -1,5 +1,8 @@
 from fastapi import FastAPI
-from app.routers import auth
+from fastapi.security import HTTPBearer
+from app.routers import auth, categories
+
+security = HTTPBearer()
 
 app = FastAPI(
     title="Finance API",
@@ -8,6 +11,7 @@ app = FastAPI(
 )
 
 app.include_router(auth.router)
+app.include_router(categories.router)
 
 
 @app.get("/health")
